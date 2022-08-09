@@ -1,0 +1,24 @@
+[package]
+name = "halo-tutorial"
+version = "0.0.1"
+edition = "2021"
+
+
+
+[patch.crates-io]
+# This fork makes bitvec 0.20.x work with funty 1.1 and funty 1.2.  Without
+# this fork, bitvec 0.20.x is incompatible with funty 1.2, which we depend on,
+# and leads to a compilation error.  This can be removed once the upstream PR
+# is resolved: https://github.com/bitvecto-rs/bitvec/pull/141
+bitvec = { git = "https://github.com/ed255/bitvec.git", rev = "5cfc5fa8496c66872d21905e677120fc3e79693c" }
+
+[dependencies]
+halo2_proofs = { git = "https://github.com/privacy-scaling-explorations/halo2.git", tag = "v2022_06_03" }
+pairing = { git = 'https://github.com/appliedzkp/pairing', package = "pairing_bn256", "tag" = "v0.1.1"}
+plotters = { version = "0.3.0", optional = true }
+tabbycat = { version = "0.1", features = ["attributes"], optional = true }
+pasta_curves = "0.3"
+ff = "0.11"
+group = "0.11"
+rand = "0.8"
+rand_core = { version = "0.6", default-features = false }
