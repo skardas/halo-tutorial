@@ -1,3 +1,4 @@
+extern crate core;
 
 use halo2_proofs::{
      circuit::{Layouter, SimpleFloorPlanner},
